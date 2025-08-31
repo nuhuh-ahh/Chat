@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hoa Chat</title>
+  <link rel="stylesheet" href="/public/styles.css"/>
+</head>
+<body>
+<div id="app">
+  <div id="authPanel" class="panel">
+    <h1>Hoa Chat</h1>
+    <div class="tabs">
+      <button id="tabLogin" class="active">Login</button>
+      <button id="tabRegister">Register</button>
+    </div>
+    <form id="loginForm" class="form">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <label class="inline">
+        <input type="checkbox" name="remember" /> Remember me
+      </label>
+      <button type="submit">Login</button>
+      <p class="hint">No account? Click Register.</p>
+    </form>
+    <form id="registerForm" class="form hidden">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Create account</button>
+    </form>
+  </div>
+
+  <div id="chatLayout" class="hidden">
+    <aside class="sidebar">
+      <div class="me">
+        <img id="meAvatar" class="avatar" src="" alt="avatar"/>
+        <div>
+          <div id="meUsername" class="bold"></div>
+          <button id="openSettings">Settings</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Friends</h3>
+        <div class="add-friend">
+          <input id="addFriendInput" placeholder="Add by username"/>
+          <button id="addFriendBtn">Add</button>
+        </div>
+        <ul id="friendsList"></ul>
+      </div>
+
+      <div class="section">
+        <h3>Groups</h3>
+        <div class="row">
+          <input id="newGroupName" placeholder="Create group name"/>
+          <button id="createGroup">Create</button>
+        </div>
+        <ul id="groupsList"></ul>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div id="contextTitle">Welcome</div>
+        <div class="vc-controls">
+          <input id="vcRoom" placeholder="Voice room (e.g., channel id)"/>
+          <button id="vcJoin">Join VC</button>
+          <button id="vcLeave">Leave VC</button>
+          <button id="vcMute">Mute</button>
+        </div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+      <div class="composer">
+        <div class="attach">
+          <label class="file">
+            <input id="fileInput" type="file" multiple webkitdirectory />
+            📎
+          </label>
+          <button id="emojiBtn" title="Emoji">😊</button>
+          <div id="emojiPicker" class="emoji-picker hidden"></div>
+        </div>
+        <textarea id="messageInput" placeholder="Type a message..."></textarea>
+        <button id="sendBtn">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Settings</h2>
+      <label>Username <input id="setUsername" /></label>
+      <label>Avatar URL <input id="setAvatar" /></label>
+      <label>Bio <textarea id="setBio"></textarea></label>
+      <button id="saveSettings">Save</button>
+      <button id="closeSettings">Close</button>
+    </div>
+  </div>
+
+  <div id="groupModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Group Options</h2>
+      <div id="groupOps"></div>
+      <button id="closeGroup">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="/public/emoji.js"></script>
+<script src="/public/client.js" type="module"></script>
+<script src="/public/socket.io.min.js"></script>
+</body>
+</html>
