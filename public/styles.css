@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #0f1216; color: #e7ebef; }
+a { color: #83bfff; }
+.hidden { display: none !important; }
+.bold { font-weight: 700; }
+.panel { max-width: 420px; margin: 10vh auto; background: #141a21; padding: 24px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+.tabs button { flex:1; padding: 10px; background:#1b2330; border:1px solid #2b3647; color:#cfe2ff; border-radius: 10px; cursor:pointer;}
+.tabs button.active { background:#243044; }
+.form { display: grid; gap: 10px; }
+.form input, .form textarea { padding:10px; border-radius:10px; border:1px solid #2b3647; background:#0e141c; color:#e7ebef; }
+.form button { padding:10px; border-radius:10px; background:#3a5a90; border:0; color:white; cursor:pointer; }
+.hint { color:#9bb3cf; font-size: 12px; }
+
+#chatLayout { display: grid; grid-template-columns: 320px 1fr; height: 100vh; }
+.sidebar { padding: 12px; border-right:1px solid #1b2431; display:flex; flex-direction: column; gap: 16px; overflow:auto; }
+.section h3 { margin:0 0 8px; font-size: 14px; color:#9bb3cf; text-transform: uppercase; letter-spacing:.06em;}
+.row { display:flex; gap:6px; }
+.add-friend { display:flex; gap:6px; }
+.add-friend input, .row input { flex:1; padding:8px; border-radius:8px; border:1px solid #2b3647; background:#0e141c; color:#e7ebef; }
+.add-friend button, .row button { padding:8px 10px; border-radius:8px; background:#2d456e; border:0; color:white; cursor:pointer; }
+
+.me { display:flex; gap:10px; align-items: center; }
+.avatar { width:40px; height:40px; border-radius: 50%; background:#243044; object-fit: cover; }
+
+#friendsList, #groupsList { list-style:none; margin:0; padding:0; display:flex; flex-direction: column; gap: 6px; }
+#friendsList li, #groupsList li { padding:8px; border-radius:10px; background:#141a21; border:1px solid #212b3a; cursor:pointer; }
+#friendsList li.active, #groupsList li.active { background:#1a2332; border-color:#35507a; }
+
+.main { display:flex; flex-direction: column; height:100vh; }
+.topbar { display:flex; align-items:center; justify-content: space-between; padding: 8px 12px; border-bottom:1px solid #1b2431; }
+.messages { flex:1; overflow:auto; padding:12px; display:flex; flex-direction: column; gap: 8px; }
+.msg { display:flex; gap:10px; align-items: flex-start; }
+.msg .bubble { background:#141a21; border:1px solid #212b3a; padding:10px; border-radius: 12px; max-width: 70%; }
+.msg.me .bubble { background:#1b2840; border-color:#2b4a7d; align-self:flex-end; }
+.msg .meta { font-size: 11px; color:#9bb3cf; margin-bottom: 6px; }
+.msg img.attachment { max-width: 360px; max-height: 280px; border-radius: 8px; display:block; }
+.msg .files a { display:block; margin-top: 6px; }
+
+.composer { display:flex; gap: 8px; padding:10px; border-top:1px solid #1b2431; }
+.composer textarea { flex:1; min-height:48px; max-height:160px; padding:10px; border-radius:10px; background:#0e141c; color:#e7ebef; border:1px solid #2b3647; resize: vertical;}
+.composer button { padding:10px 14px; border-radius:10px; background:#2d456e; border:0; color:white; cursor:pointer; }
+.attach { display:flex; align-items:center; gap:8px; }
+label.file { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px dashed #2b3647; border-radius:10px; cursor:pointer; }
+label.file input { display:none; }
+.emoji-picker { position:absolute; bottom: 80px; left: 340px; background:#141a21; border:1px solid #212b3a; border-radius: 12px; padding:8px; width: 300px; height: 220px; overflow:auto; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+.emoji-grid { display:grid; grid-template-columns: repeat(8, 1fr); gap:6px; }
+.emoji { padding:6px; background:#0e141c; text-align:center; border-radius:8px; cursor:pointer; border:1px solid #2b3647; }
+
+.modal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.5); }
+.modal .modal-content { width: 420px; background:#141a21; border:1px solid #212b3a; border-radius: 12px; padding: 16px; display:grid; gap: 8px; }
+.modal label { display:grid; gap:6px; color:#c0d4ee; }
+.modal input, .modal textarea { padding:8px; border-radius:8px; border:1px solid #2b3647; background:#0e141c; color:#e7ebef; }
+.modal button { padding:8px 10px; border-radius:8px; background:#2d456e; border:0; color:white; cursor:pointer; }
